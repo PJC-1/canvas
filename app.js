@@ -1,15 +1,45 @@
-// we create a variable that grabs the canvas
+var x = 0;
+var y = 0;
 var canvas = document.getElementById('myCanvas');
-// we use the getContext method to tell the javascript that the canvas is a 2d game/animation
 var ctx = canvas.getContext('2d');
-// fillRect is a method that fills the canvas. the first number is the starting
-// location of the x-axis which starts from the very top left point of the square
-// and the farther it goes right the larger the x value. note: that in canvas there
-// are only positive numbers, any negitive values would be outside the canvas.
-// the second number in the fillRect method is the y-axis value, and this also
-// starts at the very upper left corner and as the y-value gets larger the farther
-// down the canvas it goes. the third parameter is how wide the square is and the
-// fourth parameter is the height of the square being drawn onto the canvas.
-// mess around with the numbers to see it's effects, an example is
-// ctx.fillRect(100,100,100,100) would be centered.
-ctx.fillRect(100,100,100,100);
+
+
+// we took out the x++ and y++ and are building those controls with a function below
+// we also took out the ctx.clearRect(0,0,300,300) so that we aren't clearing
+// the canvas to create the effect of drawing.
+function draw(){
+  ctx.fillRect(x,y,10,10);
+}
+
+setInterval(draw, 10);
+
+// we are declare the move function that will wire keys to x and y movements
+// the move function will take event as a parameter
+// I am incrementing the x and y variables by 6 to make it draw faster.
+function move(event){
+  // right
+  if(event.keyCode === 39){
+    x += 6;
+  }
+  // left
+  if(event.keyCode === 37){
+    x -= 6;
+  }
+  // up
+  if(event.keyCode === 40){
+    y += 6;
+  }
+  // down
+  if(event.keyCode === 38){
+    y -= 6;
+  }
+}
+
+// we will add an event listener to have our script listen for keypresses to
+// control the x and y coordinates on the canvas. note: this would probably also
+// work for mobile touch-events, more information at:
+// https://developer.mozilla.org/en-US/docs/Web/API/Touch_events
+// the addEventListener method takes two arguments: the first being the event that
+// it is listening for and the second argument is the function that will fire
+// when the event has happened.
+addEventListener("keydown", move);
