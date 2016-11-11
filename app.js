@@ -1,15 +1,49 @@
-// we create a variable that grabs the canvas
+var x = 0;
+var y = 0;
 var canvas = document.getElementById('myCanvas');
-// we use the getContext method to tell the javascript that the canvas is a 2d game/animation
 var ctx = canvas.getContext('2d');
-// fillRect is a method that fills the canvas. the first number is the starting
-// location of the x-axis which starts from the very top left point of the square
-// and the farther it goes right the larger the x value. note: that in canvas there
-// are only positive numbers, any negitive values would be outside the canvas.
-// the second number in the fillRect method is the y-axis value, and this also
-// starts at the very upper left corner and as the y-value gets larger the farther
-// down the canvas it goes. the third parameter is how wide the square is and the
-// fourth parameter is the height of the square being drawn onto the canvas.
-// mess around with the numbers to see it's effects, an example is
-// ctx.fillRect(100,100,100,100) would be centered.
-ctx.fillRect(100,100,100,100);
+
+// declaring a function that will change the color of the drawing
+// their might be a better way to change the color, like to be able to
+// somehow access the color picker.
+function yellow(){
+  // we use the fillStyle to set the color
+  ctx.fillStyle = "gold";
+}
+// another color function
+function pink(){
+  // we use the fillStyle to set the color
+  ctx.fillStyle = "pink";
+}
+// and another color function
+function crimson(){
+  // we use the fillStyle to set the color
+  ctx.fillStyle = "crimson";
+}
+
+function draw(){
+  ctx.fillRect(x,y,10,10);
+}
+
+setInterval(draw, 10);
+
+function move(event){
+  // right
+  if(event.keyCode === 39){
+    x += 6;
+  }
+  // left
+  if(event.keyCode === 37){
+    x -= 6;
+  }
+  // up
+  if(event.keyCode === 40){
+    y += 6;
+  }
+  // down
+  if(event.keyCode === 38){
+    y -= 6;
+  }
+}
+
+addEventListener("keydown", move);

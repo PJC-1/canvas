@@ -2,6 +2,20 @@ body{
   background: antiquewhite;
   text-align: center;
 }
+button{
+  color: #3458a9;
+  border-radius: 0;
+  border: none;
+  font-family: sans-serif;
+  padding: 10px;
+  margin: 10px;
+  font-size: 14px;
+  text-decoration: none;
+  background: #cce0ed;
+}
+button:hover{
+  background-color: #91f7db;
+}
 canvas{
   background: aqua;
 }
