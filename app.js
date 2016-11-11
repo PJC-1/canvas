@@ -21,6 +21,11 @@ function crimson(){
   ctx.fillStyle = "crimson";
 }
 
+// this will clear the canvas
+function clearCanvas(){
+  ctx.clearRect(0,0,300,300);
+}
+
 function draw(){
   ctx.fillRect(x,y,10,10);
 }
