@@ -12,4 +12,4 @@ var ctx = canvas.getContext('2d');
 // fourth parameter is the height of the square being drawn onto the canvas.
 // mess around with the numbers to see it's effects, an example is
 // ctx.fillRect(100,100,100,100) would be centered.
-ctx.fillRect(0,0,10,10);
+ctx.fillRect(100,100,100,100);
