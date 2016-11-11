@@ -1,15 +1,25 @@
-// we create a variable that grabs the canvas
+var x = 0;
+var y = 0;
 var canvas = document.getElementById('myCanvas');
-// we use the getContext method to tell the javascript that the canvas is a 2d game/animation
 var ctx = canvas.getContext('2d');
-// fillRect is a method that fills the canvas. the first number is the starting
-// location of the x-axis which starts from the very top left point of the square
-// and the farther it goes right the larger the x value. note: that in canvas there
-// are only positive numbers, any negitive values would be outside the canvas.
-// the second number in the fillRect method is the y-axis value, and this also
-// starts at the very upper left corner and as the y-value gets larger the farther
-// down the canvas it goes. the third parameter is how wide the square is and the
-// fourth parameter is the height of the square being drawn onto the canvas.
-// mess around with the numbers to see it's effects, an example is
-// ctx.fillRect(100,100,100,100) would be centered.
-ctx.fillRect(0,0,10,10);
+
+
+// we will declare the draw function that will handle drawing & moving the
+// box on the canvas.
+function draw(){
+  // clearRect is used to clear the canvas, it uses the same parameters thats
+  // translates to "clear the canvas from 0,0 300 pixels wide and 300 pixels high"
+  ctx.clearRect(0,0,300,300);
+  // we switch out the x-position and y-postion for an x and y variable so
+  // we can control the position of the box on the canvas. which we declare
+  // at the top.
+  ctx.fillRect(x,y,10,10);
+  // increment x by one
+  x++;
+  // increment y by one
+  y++;
+}
+
+// the setInterval method takes to parameters: first is a function and the
+// second parameter is time in milliseconds (so thats 1 - 1000).
+setInterval(draw, 25);
